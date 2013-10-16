@@ -23,7 +23,7 @@ def main():
     code = file.read()
     file.close()
 
-    decryptList = {'1': dig_one,'2': dig_two,'3': dig_three,'4': dig_four,'5': dig_five,'6': dig_six,'7': dig_seven,'8': dig_eight,'9': dig_nine,'0': dig_nine}
+    decryptList = {'1': dig_one,'2': dig_two,'3': dig_three,'4': dig_four,'5': dig_five,'6': dig_six,'7': dig_seven,'8': dig_eight,'9': dig_nine,'0': dig_zero}
     seed = str(seed)
     string = zlib.decompress(base64.b64decode(code))
     for i in range(len(seed)):
@@ -151,10 +151,12 @@ def dig_nine(string,seed):
 
 def dig_zero(string,seed):
     outStr = ''
-    if int(seed[1])!=0:
+    if int(seed[1]) > 1:
         for i in range(len(string)):
-            if i%int(seed[1])!=0:
+            if i%(int(seed[1])+1)!=0:
                 outStr += string[i]
+            else:
+                pass
     return(outStr)
 
 main()

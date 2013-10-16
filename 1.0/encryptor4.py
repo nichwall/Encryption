@@ -24,7 +24,7 @@ def main():
 
     startTime = datetime.now()
 
-    encryptList = {'1': dig_one,'2': dig_two,'3': dig_three,'4': dig_four,'5': dig_five,'6': dig_six,'7': dig_seven,'8': dig_eight,'9': dig_nine,'0': dig_zero}
+    encryptList = {'1': dig_one,'2': dig_two,'3': dig_three,'4': dig_four,'5': dig_five,'6': dig_six,'7': dig_seven,'8': dig_eight,'9': dig_nine,'0': dig_nine}
 
     seed = str(seed)
     temp = ''
@@ -39,15 +39,6 @@ def main():
     for i in range(len(seed)):
         string = encryptList[seed[i]](string,seed)
     code = base64.b64encode(zlib.compress(string,9))
-
-##    outArray = ""
-##    for i in range(0,len(code),2):
-##        group = code[i:i+2]
-##        plain_number = ord(group[0])*256+ord(group[1])
-##        encrypted = pow(plain_number,8,37329)
-##        outArray += """
-##"""+str(encrypted)
-##        print group,"-->",plain_number,"-->",encrypted
     
     file = open(fileName,'w')
     file.write(code)
@@ -182,7 +173,7 @@ def dig_zero(string,seed):
     if int(seed[1])!=0:
         for i in range(len(string)):
             if i%int(seed[1])==0:
-                outStr += chr(random.randint(32,33))
+                outStr += chr(random.randint(97,122))
                 outStr += string[i]
             else:
                 outStr += string[i]
