@@ -2,7 +2,9 @@
 =================
 
 Encrypts alpha characters
+
 No padding
+
 Compresses to avoid nasty untypeables
 
 
@@ -11,4 +13,5 @@ Compresses to avoid nasty untypeables
 =================
 
 Now encrypts all characters
+
 Added padding
