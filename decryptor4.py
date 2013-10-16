@@ -77,7 +77,7 @@ def dig_five(string,seed):
     for i in range(len(string)):
             temp = ord(string[i])
             temp+= 3
-            if temp>256:
+            if temp>=256:
                 temp-=256
             outStr += chr(temp)
     return(outStr)
@@ -129,9 +129,9 @@ def dig_eight(string,seed):
         if seed[1]!='0':
             if i%eval(seed[1])==0:
                 temp = ord(string[i])
-                temp+= eval(seed[5])
-                if temp>256:
-                    temp-=256
+                temp-= eval(seed[5])
+                if temp<0:
+                    temp+=256
                 outStr += chr(temp)
             else:
                 outStr += string[i]
@@ -139,7 +139,7 @@ def dig_eight(string,seed):
             if i%2==0:
                 temp = ord(string[i])
                 temp+= eval(seed[5])
-                if temp>256:
+                if temp>=256:
                     temp -= 256
                 outStr += chr(temp)
             else:

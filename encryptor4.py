@@ -60,10 +60,9 @@ def main():
 def dig_one(string,seed):
     outStr = ''
     for i in range(len(string)):
-        #print i,string[i],ord(string[i]),ord(string[i])+5,chr(ord(string[i])+5)
         temp = ord(string[i])
         temp+= 5
-        if temp>256:
+        if temp>=256:
             temp-=256
         outStr += chr(temp)
     return(outStr)
@@ -150,15 +149,13 @@ def dig_seven(string,seed):
 def dig_eight(string,seed):
     outStr = ''
     for i in range(len(string)):
-        #print string[i]
         if seed[1]!='0':
             if i%eval(seed[1])==0:
                 temp = ord(string[i])
-                temp-= eval(seed[5])
-                if temp>256:
+                temp+= eval(seed[5])
+                if temp>=256:
                     temp-=256
                 outStr += chr(temp)
-          #      print(chr(temp))
             else:
                 outStr += string[i]
         else:
@@ -168,10 +165,8 @@ def dig_eight(string,seed):
                 if temp<0:
                     temp+=256
                 outStr += chr(temp)
-         #       print(chr(temp))
             else:
                 outStr += string[i]
-        #print
     return(outStr)
 
 def dig_nine(string,seed):

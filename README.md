@@ -10,4 +10,3 @@ After the encryption is done, it will encrypt the output string with the zlib an
 I am currently working on making the program insert randomly generated characters throughout the code, at intervals based on the seed. I also hope to have the code run through an RSA encryption.
 
 This is by no means a program to encrypt sensitive information (yet), but it is a nice little program to have to encrypt some plaintext files against the casual user.
-
